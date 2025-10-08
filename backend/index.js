@@ -17,6 +17,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/chats', require('./routes/chat'));
 app.use('/api/messages', require('./routes/message'));
 app.use('/api/users', require('./routes/user'));
+app.use('/api/beta', require('./routes/beta'));
 
 // Socket.IO setup
 io.on('connection', (socket) => {
