@@ -95,4 +95,3 @@ MIT
 
 ---
 
-Would you like me to also **draft a roadmap section** 🗺️ (with emojis) showing how Eye to Eye will evolve from **v1.0.0 → v2.0.0** (with Gemini + Qwen3 fully integrated)?
