@@ -1,3 +1,4 @@
+const path = require('path');
 require('dotenv').config();
 const express = require('express');
 const http = require('http');
@@ -18,6 +19,8 @@ app.use('/api/chats', require('./routes/chat'));
 app.use('/api/messages', require('./routes/message'));
 app.use('/api/users', require('./routes/user'));
 app.use('/api/beta', require('./routes/beta'));
+app.use('/api/voice', require('./routes/voice'));
+app.use('/uploads/voice', express.static(path.join(__dirname, 'uploads/voice')));
 
 // Socket.IO setup
 io.on('connection', (socket) => {
