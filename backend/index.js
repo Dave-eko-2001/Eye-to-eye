@@ -24,6 +24,8 @@ app.use('/uploads/voice', express.static(path.join(__dirname, 'uploads/voice')))
 <<<<<<< HEAD
 =======
 app.use('/api/auth-device', require('./routes/authDevice'));
+app.use('/api/push', require('./routes/push'));
+app.use('/api/onesignal', require('./routes/onesignal'));
 >>>>>>> b8fa83a (Biometircs intergration into settings)
 
 // Socket.IO setup
