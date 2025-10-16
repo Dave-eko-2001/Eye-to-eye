@@ -21,6 +21,10 @@ app.use('/api/users', require('./routes/user'));
 app.use('/api/beta', require('./routes/beta'));
 app.use('/api/voice', require('./routes/voice'));
 app.use('/uploads/voice', express.static(path.join(__dirname, 'uploads/voice')));
+<<<<<<< HEAD
+=======
+app.use('/api/auth-device', require('./routes/authDevice'));
+>>>>>>> b8fa83a (Biometircs intergration into settings)
 
 // Socket.IO setup
 io.on('connection', (socket) => {

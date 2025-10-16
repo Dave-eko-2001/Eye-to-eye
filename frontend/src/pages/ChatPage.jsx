@@ -1,8 +1,48 @@
 import React, { useState } from 'react';
 import UserSearchBar from '../components/UserSearchBar';
+<<<<<<< HEAD
 
 function ChatPage() {
     const [selectedUser, setSelectedUser] = useState(null);
+=======
+import VoiceNoteRecorder from '../components/VoiceNoteRecorder';
+import axios from 'axios';
+
+function ChatPage() {
+    const [selectedUser, setSelectedUser] = useState(null);
+    const [voiceNoteUrl, setVoiceNoteUrl] = useState(null);
+    const [localVoiceUrl, setLocalVoiceUrl] = useState(null);
+    const [uploading, setUploading] = useState(false);
+
+    // Save blob locally and upload to backend
+    const handleVoiceSend = async (blob) => {
+        // Save locally
+        const localUrl = URL.createObjectURL(blob);
+        setLocalVoiceUrl(localUrl);
+        // Save to phone (browser) storage
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = localUrl;
+        a.download = `voice-note-${Date.now()}.webm`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        // Upload to backend
+        setUploading(true);
+        const formData = new FormData();
+        formData.append('voice', blob, `voice-note-${Date.now()}.webm`);
+        try {
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/voice/upload`, formData, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+            });
+            setVoiceNoteUrl(res.data.url);
+        } catch (err) {
+            alert('Voice note upload failed.');
+        }
+        setUploading(false);
+    };
+
+>>>>>>> b8fa83a (Biometircs intergration into settings)
     return (
         <div>
             <h2 style={{ textAlign: 'center', color: '#1976d2', marginTop: 24 }}>Eye to Eye Chat</h2>
@@ -28,8 +68,27 @@ function ChatPage() {
                             <div style={{ background: "#c8e6c9", padding: 8, borderRadius: 4, display: "inline-block" }}>Hello! You found me on Eye to Eye.</div>
                             <div style={{ fontSize: 12, color: "#888" }}>10:01 AM</div>
                         </div>
+<<<<<<< HEAD
                         {/* More messages can be mapped here */}
                     </div>
+=======
+                        {/* Voice note preview and download */}
+                        {localVoiceUrl && (
+                            <div style={{ margin: '16px 0' }}>
+                                <div style={{ fontWeight: 'bold', color: '#1976d2' }}>Your Voice Note (local):</div>
+                                <audio controls src={localVoiceUrl} />
+                            </div>
+                        )}
+                        {voiceNoteUrl && (
+                            <div style={{ margin: '16px 0' }}>
+                                <div style={{ fontWeight: 'bold', color: '#388e3c' }}>Saved in Cloud:</div>
+                                <audio controls src={`${import.meta.env.VITE_API_URL}${voiceNoteUrl}`} />
+                                <a href={`${import.meta.env.VITE_API_URL}${voiceNoteUrl}`} download style={{ marginLeft: 12, color: '#25d366' }}>Redownload</a>
+                            </div>
+                        )}
+                    </div>
+                    <VoiceNoteRecorder onSend={handleVoiceSend} />
+>>>>>>> b8fa83a (Biometircs intergration into settings)
                     <form style={{ display: "flex", gap: 8 }}>
                         <input
                             type="text"
@@ -44,6 +103,10 @@ function ChatPage() {
                     <div style={{ marginTop: 8, fontSize: 12, color: "#888" }}>
                         * Direct messaging coming soon!
                     </div>
+<<<<<<< HEAD
+=======
+                    {uploading && <div style={{ color: '#1976d2', marginTop: 8 }}>Uploading voice note...</div>}
+>>>>>>> b8fa83a (Biometircs intergration into settings)
                 </div>
             )}
         </div>
