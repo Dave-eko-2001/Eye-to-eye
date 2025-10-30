@@ -18,15 +18,13 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/chats', require('./routes/chat'));
 app.use('/api/messages', require('./routes/message'));
 app.use('/api/users', require('./routes/user'));
+app.use('/api/users', require('./routes/userPrivacy'));
 app.use('/api/beta', require('./routes/beta'));
 app.use('/api/voice', require('./routes/voice'));
 app.use('/uploads/voice', express.static(path.join(__dirname, 'uploads/voice')));
-<<<<<<< HEAD
-=======
 app.use('/api/auth-device', require('./routes/authDevice'));
 app.use('/api/push', require('./routes/push'));
 app.use('/api/onesignal', require('./routes/onesignal'));
->>>>>>> b8fa83a (Biometircs intergration into settings)
 
 // Socket.IO setup
 io.on('connection', (socket) => {

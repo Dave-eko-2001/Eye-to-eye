@@ -5,6 +5,7 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   avatar: { type: String },
+  privacy: { type: String, enum: ['private', 'public'], default: 'private' },
   createdAt: { type: Date, default: Date.now }
 });
 
