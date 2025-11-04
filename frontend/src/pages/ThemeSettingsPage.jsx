@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+1import React, { useEffect, useState } from 'react';
 
 const getDeviceTheme = () => {
   if (window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
