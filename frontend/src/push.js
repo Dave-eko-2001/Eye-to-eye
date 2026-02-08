@@ -1,6 +1,6 @@
 // Web Push registration and subscription logic
 // You must provide your VAPID public key below
-const VAPID_PUBLIC_KEY = 'YOUR_VAPID_PUBLIC_KEY_HERE'; // <-- Replace this
+const VAPID_PUBLIC_KEY = 'BAdPn4s6LzCH3dZhh45SPcDGtvyCe8Ukp48KtvR7iLYVxWTAUY9TO8kGyQANDznJ4oQh3nEHSKhlWjlWSP0nvJc';
 
 export async function registerServiceWorker() {
   if ('serviceWorker' in navigator) {

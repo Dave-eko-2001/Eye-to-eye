@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const webpush = require('web-push');
 
-// TODO: Replace with your VAPID keys
-const VAPID_PUBLIC_KEY = 'YOUR_VAPID_PUBLIC_KEY_HERE';
-const VAPID_PRIVATE_KEY = 'YOUR_VAPID_PRIVATE_KEY_HERE';
+
+// VAPID keys for web push notifications
+const VAPID_PUBLIC_KEY = 'BAdPn4s6LzCH3dZhh45SPcDGtvyCe8Ukp48KtvR7iLYVxWTAUY9TO8kGyQANDznJ4oQh3nEHSKhlWjlWSP0nvJc';
+const VAPID_PRIVATE_KEY = '7pfGVE_qcv_D1OL7HbpUdfl4TT69Y9Lk7_8yBcfJAWc';
 
 webpush.setVapidDetails(
   'mailto:your@email.com',
